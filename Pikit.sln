@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Shared", "Pikit.Shared\Pikit.Shared.csproj", "{1D4EEAC4-11DF-40E2-AE74-C71F1CEB4B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Entities", "Pikit.Entities\Pikit.Entities.csproj", "{BC4AE7F2-5CF8-47D9-B754-2415B6597C4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CEFD2757-C45B-444C-9405-104904F8B0FA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Database", "Pikit.Database\Pikit.Database.csproj", "{62F35DBF-83FE-4479-9E34-189611D88742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Services", "Pikit.Services\Pikit.Services.csproj", "{9A9015BF-A8BC-48E2-9D8A-57B01B89A18F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Tests", "Pikit.Tests\Pikit.Tests.csproj", "{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D4EEAC4-11DF-40E2-AE74-C71F1CEB4B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4EEAC4-11DF-40E2-AE74-C71F1CEB4B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4EEAC4-11DF-40E2-AE74-C71F1CEB4B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4EEAC4-11DF-40E2-AE74-C71F1CEB4B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC4AE7F2-5CF8-47D9-B754-2415B6597C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC4AE7F2-5CF8-47D9-B754-2415B6597C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC4AE7F2-5CF8-47D9-B754-2415B6597C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC4AE7F2-5CF8-47D9-B754-2415B6597C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F35DBF-83FE-4479-9E34-189611D88742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F35DBF-83FE-4479-9E34-189611D88742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F35DBF-83FE-4479-9E34-189611D88742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F35DBF-83FE-4479-9E34-189611D88742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9015BF-A8BC-48E2-9D8A-57B01B89A18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9015BF-A8BC-48E2-9D8A-57B01B89A18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9015BF-A8BC-48E2-9D8A-57B01B89A18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9015BF-A8BC-48E2-9D8A-57B01B89A18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
