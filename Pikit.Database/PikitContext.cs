@@ -1,4 +1,5 @@
-﻿using Pikit.Shared;
+﻿using Pikit.Entities.Entities;
+using Pikit.Shared;
 using Pikit.Shared.Configuration;
 using Pikit.Shared.Interfaces;
 using System;
@@ -95,17 +96,19 @@ namespace Pikit.Database
                 };
 
                 var user = Thread.CurrentPrincipal;
-                //AuditRecord record = new AuditRecord
-                //{
-                //    AuditType = auditType,
-                //    AuditUser = user != null ? ((user.Identity.Name.Trim() == "") ? "Unknown" : user.Identity.Name) : "Unknown",
-                //    AuditDate = DateTime.Now,
-                //    RecordId = auditable.Id,
-                //    RecordType = auditable.GetType().AssemblyQualifiedName,
-                //    RecordData = Newtonsoft.Json.JsonConvert.SerializeObject(auditable, Newtonsoft.Json.Formatting.None, settings),
-                //};
-                //AuditRecords.Add(record);
+                AuditRecord record = new AuditRecord
+                {
+                    AuditType = auditType,
+                    AuditUser = user != null ? ((user.Identity.Name.Trim() == "") ? "Unknown" : user.Identity.Name) : "Unknown",
+                    AuditDate = DateTime.Now,
+                    RecordId = auditable.Id,
+                    RecordType = auditable.GetType().AssemblyQualifiedName,
+                    RecordData = Newtonsoft.Json.JsonConvert.SerializeObject(auditable, Newtonsoft.Json.Formatting.None, settings),
+                };
+                AuditRecords.Add(record);
             }
         }
+
+        public virtual DbSet<AuditRecord> AuditRecords { get; set; }
     }
 }

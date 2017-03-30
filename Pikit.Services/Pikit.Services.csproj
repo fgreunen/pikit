@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\AuditingService.cs" />
+    <Compile Include="Interfaces\IAuditingService.cs" />
     <Compile Include="Interfaces\ServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

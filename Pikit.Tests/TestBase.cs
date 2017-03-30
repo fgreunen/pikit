@@ -15,7 +15,6 @@ namespace Pikit.Tests
     public class TestBase
     {
         public virtual bool UseDatabase { get { return false; } }
-        public TestModules TestModules { get; set; }
 
         [SetUp]
         public void BaseSetUp()
