@@ -7,6 +7,7 @@ namespace Pikit.Shared.Configuration
 {
     public interface IConfigurationProperties
     {
-        bool DoAuditing { get; }
+        bool DoAuditing { get; set; }
+        string FileDropDirectory { get; set; }
     }
 }

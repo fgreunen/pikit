@@ -17,8 +17,8 @@ namespace Pikit.Tests.Modules
     {
         public override void Load()
         {
-            Bind<IConfigurationProperties>().To<ConfigurationProperties>();
-            Bind<IAuditingService>().To<AuditingService>();
+            Bind<IConfigurationProperties>().To<ConfigurationProperties>().InSingletonScope();
+            Bind<IImageUploadService>().To<ImageUploadService>();
         }
     }
 }

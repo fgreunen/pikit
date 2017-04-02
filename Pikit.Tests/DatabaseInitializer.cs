@@ -40,6 +40,27 @@ namespace Pikit.Tests
                 {
                     migrator.Update();
                 }
+                else
+                {
+                    try
+                    {
+                        context.AuditRecords.Any();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex is InvalidOperationException
+                            && ex.Message.StartsWith("The model backing the"))
+                        {
+                            context.Database.Delete();
+                            context.Database.Create();
+                            migrator.Update();
+                        }
+                        else
+                        {
+                            throw ex;
+                        }
+                    }
+                }
             }
             else
             {

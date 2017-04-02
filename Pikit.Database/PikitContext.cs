@@ -54,7 +54,7 @@ namespace Pikit.Database
                     int changes = base.SaveChanges();
                     foreach (var entry in addedEntries)
                     {
-                        ApplyAuditLog(entry);
+                        ApplyAuditLog(entry, EntityState.Added);
                     }
 
                     base.SaveChanges();
@@ -69,10 +69,11 @@ namespace Pikit.Database
             }
         }
 
-        private void ApplyAuditLog(DbEntityEntry entry)
+        private void ApplyAuditLog(DbEntityEntry entry, EntityState? overrideState = null)
         {
             string auditType;
-            switch (entry.State)
+            overrideState = overrideState ?? entry.State;
+            switch (overrideState.GetValueOrDefault())
             {
                 case EntityState.Added:
                     auditType = "Create";
@@ -84,7 +85,7 @@ namespace Pikit.Database
                     auditType = "Update";
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    return;
             }
 
             IAuditable auditable = entry.Entity as IAuditable;
@@ -110,5 +111,6 @@ namespace Pikit.Database
         }
 
         public virtual DbSet<AuditRecord> AuditRecords { get; set; }
+        public virtual DbSet<TestEntity> TestEntities { get; set; }
     }
 }

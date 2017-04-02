@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Services", "Pikit.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Tests", "Pikit.Tests\Pikit.Tests.csproj", "{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pikit.Imaging", "Pikit.Imaging\Pikit.Imaging.csproj", "{757100B3-1257-415F-915E-D3C2277CBDD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC8B4B9B-3249-4C5A-90B7-D2F75105EBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{757100B3-1257-415F-915E-D3C2277CBDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757100B3-1257-415F-915E-D3C2277CBDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757100B3-1257-415F-915E-D3C2277CBDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757100B3-1257-415F-915E-D3C2277CBDD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
