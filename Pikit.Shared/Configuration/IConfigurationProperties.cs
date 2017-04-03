@@ -9,5 +9,6 @@ namespace Pikit.Shared.Configuration
     {
         bool DoAuditing { get; set; }
         string FileDropDirectory { get; set; }
+        string DatabaseContext { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Pikit.Tests.UnitTests.Services
 {
     [TestFixture]
-    public class ImageUploadService
+    public class ImageUploadServiceTests
         : UnitTestBase
     {
         [Test]

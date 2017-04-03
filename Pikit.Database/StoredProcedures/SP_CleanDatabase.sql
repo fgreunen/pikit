@@ -8,3 +8,6 @@ AS
 
 	DELETE FROM AuditRecords
 	DELETE FROM TestEntities
+	DELETE FROM UserLinks
+	DELETE FROM Posts
+	DELETE FROM Users

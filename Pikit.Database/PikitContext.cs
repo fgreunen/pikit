@@ -16,18 +16,16 @@ namespace Pikit.Database
     public class PikitContext
         : DbContext, IDbContext
     {
-        public static string ConnectionName = "PikitContext";
 
         private readonly bool _doAuditing;
 
         public PikitContext()
-            : base("name=" + ConnectionName)
+            : base(Kernel.Get<IConfigurationProperties>().DatabaseContext)
         {
             // enable-migrations
             // update-database -TargetMigration:0 | update-database -force | update-database -force
 
-            var props = Kernel.Get<IConfigurationProperties>();
-            _doAuditing = props == null ? false : props.DoAuditing;
+            _doAuditing = Kernel.Get<IConfigurationProperties>().DoAuditing;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -112,5 +110,9 @@ namespace Pikit.Database
 
         public virtual DbSet<AuditRecord> AuditRecords { get; set; }
         public virtual DbSet<TestEntity> TestEntities { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserLink> UserLinks { get; set; }
+        public virtual DbSet<Vote> Votes { get; set; }
     }
 }

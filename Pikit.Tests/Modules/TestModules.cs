@@ -19,6 +19,7 @@ namespace Pikit.Tests.Modules
         {
             Bind<IConfigurationProperties>().To<ConfigurationProperties>().InSingletonScope();
             Bind<IImageUploadService>().To<ImageUploadService>();
+            Bind<IPostService>().To<PostService>();
         }
     }
 }

@@ -60,7 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AuditRecord.cs" />
+    <Compile Include="Entities\Vote.cs" />
+    <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\TestEntity.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

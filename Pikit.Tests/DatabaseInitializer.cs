@@ -1,5 +1,6 @@
 ﻿using Pikit.Database;
 using Pikit.Shared;
+using Pikit.Shared.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -31,7 +32,7 @@ namespace Pikit.Tests
             PikitContext context)
         {
             var configuration = new Pikit.Database.Migrations.Configuration();
-            configuration.TargetDatabase = new DbConnectionInfo(PikitContext.ConnectionName);
+            configuration.TargetDatabase = new DbConnectionInfo(Kernel.Get<IConfigurationProperties>().DatabaseContext, "System.Data.SqlClient");
 
             var migrator = new System.Data.Entity.Migrations.DbMigrator(configuration);
             if (context.Database.Exists())

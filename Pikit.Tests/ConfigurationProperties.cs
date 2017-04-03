@@ -13,11 +13,13 @@ namespace Pikit.Tests
     {
         public bool DoAuditing { get; set; }
         public string FileDropDirectory { get; set; }
+        public string DatabaseContext { get; set; }
 
         public ConfigurationProperties()
         {
             DoAuditing = false;
             FileDropDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"FileDropDirectory");
+            DatabaseContext = System.Configuration.ConfigurationManager.ConnectionStrings["PikitContext"].ConnectionString;
         }
     }
 }

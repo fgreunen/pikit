@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Pikit.Services.Responses
 {
-    public class BaseResponse
+    public class PostCreateResponse
+        : BaseResponse
     {
-        public DateTime ResponseTimestamp { get; private set; }
+        public Guid PostUniqueIdentifier { get; set; }
 
-        public BaseResponse()
+        public PostCreateResponse()
+            : base()
         {
-            ResponseTimestamp = DateTime.Now;
         }
     }
 }

@@ -14,23 +14,5 @@ namespace Pikit.Tests.FunctionalTests
         : TestBase
     {
         public override bool UseDatabase { get { return true; } }
-
-        private IUnitOfWork _uow;
-        public IUnitOfWork UnitOfWork
-        {
-            get
-            {
-                if (_uow == null)
-                {
-                    _uow = Kernel.Get<IUnitOfWork>();
-                }
-                return _uow;
-            }
-        }
-
-        public void RefreshDbContext()
-        {
-            _uow = null;
-        }
     }
 }

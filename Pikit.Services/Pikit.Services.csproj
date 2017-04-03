@@ -59,13 +59,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\VoteService.cs" />
+    <Compile Include="Implementations\PostService.cs" />
     <Compile Include="Implementations\ImageUploadService.cs" />
     <Compile Include="Interfaces\IImageUploadService.cs" />
+    <Compile Include="Interfaces\IVoteService.cs" />
+    <Compile Include="Interfaces\IPostService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\ServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\BaseRequest.cs" />
+    <Compile Include="Requests\VoteRequest.cs" />
+    <Compile Include="Requests\PostGetRequest.cs" />
+    <Compile Include="Requests\PostCreateRequest.cs" />
     <Compile Include="Requests\ImageUploadRequest.cs" />
     <Compile Include="Results\BaseResponse.cs" />
+    <Compile Include="Results\PostGetResponse.cs" />
+    <Compile Include="Results\PostCreateResponse.cs" />
     <Compile Include="Results\ImageUploadResponse.cs" />
   </ItemGroup>
   <ItemGroup>
