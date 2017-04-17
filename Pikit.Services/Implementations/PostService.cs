@@ -22,7 +22,7 @@ namespace Pikit.Services.Implementations
         {
             request.Validate();
 
-            var user = _unitOfWork.GetRepository<User>().GetAll().Single(x => x.UniqueIdentifier.ToString() == request.UserUniqueIdentifier.ToString());
+            var user = _unitOfWork.Repository<User>().Find(request.UserUniqueIdentifier);
 
             var resourceUrl1 = Kernel.Get<IImageUploadService>().UploadImage(new ImageUploadRequest
             {
@@ -44,8 +44,8 @@ namespace Pikit.Services.Implementations
                 Created = request.RequestTimestamp
             };
 
-            _unitOfWork.GetRepository<Post>().Create(post);
-            _unitOfWork.Save();
+            _unitOfWork.Repository<Post>().Insert(post);
+            _unitOfWork.SaveChanges();
 
             var response = new PostCreateResponse
             {
@@ -60,11 +60,11 @@ namespace Pikit.Services.Implementations
         {
             request.Validate();
 
-            var user = _unitOfWork.GetRepository<User>().GetAll().Single(x => x.UniqueIdentifier.ToString() == request.UserUniqueIdentifier.ToString());
+            var user = _unitOfWork.Repository<User>().Find(request.UserUniqueIdentifier);
 
-            var where = _unitOfWork.GetRepository<Post>().GetAll().Where(x =>
-                 x.UserId == user.Id
-            );
+            var where = _unitOfWork.Repository<Post>()
+                .Queryable()
+                .Where(x => x.UserId == user.Id);
             where = where.OrderByDescending(x => x.Id);
             if (request.StartFilter.HasValue)
             {
@@ -100,14 +100,14 @@ namespace Pikit.Services.Implementations
         {
             request.Validate();
 
-            var user = _unitOfWork.GetRepository<User>().GetAll().Single(x => x.UniqueIdentifier.ToString() == request.UserUniqueIdentifier.ToString());
-            var friendIds = _unitOfWork.GetRepository<UserLink>().GetAll().Where(x =>
-                x.FromId == user.Id
-            ).Select(x => x.ToId);
+            var user = _unitOfWork.Repository<User>().Find(request.UserUniqueIdentifier);
+            var friendIds = _unitOfWork.Repository<UserLink>()
+                .Queryable()
+                .Where(x => x.FromId == user.Id).Select(x => x.ToId);
 
-            var where = _unitOfWork.GetRepository<Post>().GetAll().Where(x =>
-                 friendIds.Contains(x.UserId)
-            );
+            var where = _unitOfWork.Repository<Post>()
+                .Queryable()
+                .Where(x => friendIds.Contains(x.UserId));
             where = where.OrderByDescending(x => x.Id);
             if (request.StartFilter.HasValue)
             {

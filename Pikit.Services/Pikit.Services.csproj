@@ -59,9 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\GenericService.cs" />
     <Compile Include="Implementations\VoteService.cs" />
     <Compile Include="Implementations\PostService.cs" />
     <Compile Include="Implementations\ImageUploadService.cs" />
+    <Compile Include="Interfaces\IGenericService.cs" />
     <Compile Include="Interfaces\IImageUploadService.cs" />
     <Compile Include="Interfaces\IVoteService.cs" />
     <Compile Include="Interfaces\IPostService.cs" />

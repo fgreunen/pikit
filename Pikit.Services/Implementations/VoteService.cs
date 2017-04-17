@@ -21,18 +21,18 @@ namespace Pikit.Services.Implementations
             VoteRequest request)
         {
             request.Validate();
-            var post = _unitOfWork.GetRepository<Post>().GetAll().Single(x => x.UniqueIdentifier.ToString() == request.PostUniqueIdentifier.ToString());
-            var user = _unitOfWork.GetRepository<User>().GetAll().Single(x => x.UniqueIdentifier.ToString() == request.UserUniqueIdentifier.ToString());
+            var post = _unitOfWork.Repository<Post>().Queryable().Single(x => x.UniqueIdentifier.ToString() == request.PostUniqueIdentifier.ToString());
+            var user = _unitOfWork.Repository<User>().Queryable().Single(x => x.UniqueIdentifier.ToString() == request.UserUniqueIdentifier.ToString());
 
             bool voteBit = post.ResourceUrl1 == request.ResourceUrl;
 
-            var vote = _unitOfWork.GetRepository<Vote>().GetAll().FirstOrDefault(x => x.UserId == user.Id && x.PostId == post.Id);
+            var vote = _unitOfWork.Repository<Vote>().Queryable().FirstOrDefault(x => x.UserId == user.Id && x.PostId == post.Id);
             if (vote != null && vote.VoteBit != voteBit)
             {
                 vote.VoteBit = voteBit;
                 vote.Created = DateTime.Now;
-                _unitOfWork.GetRepository<Vote>().Update(vote);
-                _unitOfWork.Save();
+                _unitOfWork.Repository<Vote>().Update(vote);
+                _unitOfWork.SaveChanges();
                 return new BaseResponse();
             }
             else
@@ -45,8 +45,8 @@ namespace Pikit.Services.Implementations
                     UniqueIdentifier = Guid.NewGuid(),
                     VoteBit = voteBit
                 };
-                _unitOfWork.GetRepository<Vote>().Create(vote);
-                _unitOfWork.Save();
+                _unitOfWork.Repository<Vote>().Insert(vote);
+                _unitOfWork.SaveChanges();
 
                 return new BaseResponse();
             }
